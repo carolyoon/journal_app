@@ -11,6 +11,10 @@ class EntriesController < ApplicationController
     @entry = Entry.new
   end
 
+  def edit
+    @entry = Entry.find(params[:id])
+  end
+
   def create
     @entry = Entry.new(entry_params)
 
@@ -19,6 +23,17 @@ class EntriesController < ApplicationController
     else
       @errors = @entry.errors.full_messages
       render 'new'
+    end
+  end
+
+  def update
+    @entry = Entry.find(params[:id])
+
+    if @entry.update(entry_params)
+      redirect_to @entry
+    else
+      @errors = @entry.errors.full_messages
+      render 'edit'
     end
   end
 
