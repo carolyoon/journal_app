@@ -8,6 +8,7 @@ class EntriesController < ApplicationController
   end
 
   def new
+    @entry = Entry.new
   end
 
   def create
@@ -16,8 +17,8 @@ class EntriesController < ApplicationController
     if @entry.save
       redirect_to @entry
     else
-      @errors = entry.errors.full_messages
-      redirect_to new_entry
+      @errors = @entry.errors.full_messages
+      render 'new'
     end
   end
 
