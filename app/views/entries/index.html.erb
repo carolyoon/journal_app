@@ -1,0 +1,16 @@
+<h1>All Entries</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Entry</th>
+  </tr>
+
+  <% @entries.each do |entry| %>
+    <tr>
+      <td><%= entry.date %></td>
+      <td><%= entry.text %></td>
+      <td><%= link_to 'Show', entry_path(entry) %></td>
+    </tr>
+  <% end %>
+</table>

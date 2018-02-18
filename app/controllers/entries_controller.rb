@@ -1,4 +1,12 @@
 class EntriesController < ApplicationController
+  def index
+    @entries = Entry.all 
+  end
+  
+  def show
+    @entry = Entry.find(params[:id])
+  end
+
   def new
   end
 
@@ -11,10 +19,6 @@ class EntriesController < ApplicationController
       @errors = entry.errors.full_messages
       redirect_to new_entry
     end
-  end
-
-  def show
-    @entry = Entry.find(params[:id])
   end
 
   private
