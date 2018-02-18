@@ -1,0 +1,12 @@
+<p>
+  <strong>Date:</strong>
+  <%= @entry.date %>
+</p>
+
+<p>
+  <strong>Entry:</strong>
+  <%= @entry.text %>
+</p>
+
+<%= link_to 'Edit', edit_entry_path(@entry) %>
+<%= link_to 'Back', entries_path %>
