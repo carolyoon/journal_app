@@ -3,7 +3,7 @@ class EntriesController < ApplicationController
   end
 
   def create
-    @entry = Entry.new(params.require[:article].permit(:date, :text))
+    @entry = Entry.new(entry_params)
 
     if @entry.save
       redirect_to @entry
@@ -12,5 +12,10 @@ class EntriesController < ApplicationController
       redirect_to new_entry
     end
   end
+  
+  private
+    def entry_params
+      params.require(:entry).permit(:date, :text)
+    end
 end
  
