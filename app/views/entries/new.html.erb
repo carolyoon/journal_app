@@ -1,1 +1,16 @@
 <h1>New Entry</h1>
+
+<%= form_with scope: :entry, local: true do |form| %>
+  <p>
+    <%= form.label :date %><br>
+    <%= form.text_field :date %>
+  </p>
+
+  <p>
+    <%= form.text_area :text, placeholder: "Your entry here" %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
