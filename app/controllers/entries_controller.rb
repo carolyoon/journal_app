@@ -12,7 +12,11 @@ class EntriesController < ApplicationController
       redirect_to new_entry
     end
   end
-  
+
+  def show
+    @entry = Entry.find(params[:id])
+  end
+
   private
     def entry_params
       params.require(:entry).permit(:date, :text)
