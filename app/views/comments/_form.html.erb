@@ -1,0 +1,11 @@
+<%= form_with(model: [ @entry, @entry.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.text_area :body, placeholder: "Leave a comment here" %>
+  </p>
+
+  <p><%= form.submit %></p>
+<% end %>
