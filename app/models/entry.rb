@@ -1,3 +1,4 @@
 class Entry < ApplicationRecord
-  validates :date, :text, presence: true 
+  has_many :comments
+  validates :date, :text, presence: true
 end
